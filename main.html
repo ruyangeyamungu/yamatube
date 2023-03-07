@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+body{
+    margin: 0px;
+}
+.headerContainer {
+    width: 100%;
+    height: 200px;
+    background-color: rgba(0, 0, 255, 0.219);
+}
+.sectionContainer {
+    width: auto;
+    height: auto;
+    background-color: rgba(3, 3, 15, 0.219);
+    display: flex;
+    flex: wrap;
+    flex-direction: right;
+}
+.navButtonsContainer {
+    flex: 20%;
+    height: inherit;
+    background-color: #ceb1b115;
+}
+.tabContainer {
+    flex: 70; 
+    height: auto;
+   /* background-color: dimgrey; */
+   background-color: rgba(241, 241, 241, 0.911);
+}
+.fotter {
+    background-color: darkblue;
+    width: auto;
+    height: 50px;
+}
+.buttons {
+    width: 250px;
+    height: auto;
+    position: relative;
+    background-color: white;
+    margin: 20px;
+    border: 1px dotted rgba(0, 128, 0, 0.055);
+    border-radius: 4px;
+}
+button{
+   display: block;
+   /*margin: 10px 0px; */
+   margin-bottom: 0px;
+   padding: 20px; 
+   padding-right: 0px;
+   width: 100%;
+   border: none;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.199);
+}
+button:hover {
+    background-color: rgba(100, 148, 237, 0.137);
+    border-bottom: 1px solid #0a0af7;
+}
+/* #menuOne {
+    display: none;
+}
+#menuTwo {
+    display: none;
+} */
+#menuOne button {
+    padding: 10px;
+    background-color: rgba(114, 27, 196, 0.205);
+    border: none;
+}
+#menuOne button:hover {
+    color: hsl(357, 100%, 25%);
+}
+#menuTwo button {
+    padding: 10px;
+    background-color: rgba(114, 27, 196, 0.205);
+    border: none;
+}
+#menuTwo button:hover {
+    color: hsl(357, 100%, 25%);
+}
+#caret_one {
+    float: right;
+    font-size: 15px;
+}
+#caret_two {
+    float: right;
+    font-size: 15px;
+}
+.fa {
+  margin-right: 5px;
+}
+.show {
+    display: block;
+}
+/*--toggle style-----*/
+.a {
+    display: none;
+}
+.menu_one {
+    display: none;
+}
+.menu_two {
+    display: none;
+}
+.tableContMain{
+    width: 70%px;
+    height: auto;
+    background-color: #2e2e530c;
+    padding: 0px 50px 50px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+}
+.tableCont {
+    width: 100%;
+    height: auto;
+    background-color: aliceblue;
+    position: relative;
+    border: 2px dotted rgba(37, 5, 180, 0.829);
+    border-radius: 4px;
+    padding: 20px;
+
+}
+table {
+    width: 100%;
+}
+tr {
+    height: 40px;
+}
+td :nth-child(even) {
+    background-color: rgba(128, 128, 128, 0.171);
+}
+ /* :nth-child(even) {
+    background-col                      qqqqqqqqqq1`                                 
+} */
+h1 {
+    color: hwb(300 0% 50%);
+}
+label {
+    display: block;
+}
+input{
+    height: 20px;
+    padding: 3px;
+    border: 1 px solid rgba(165, 42, 42, 0.247);
+    width: 60%;
+    margin-bottom: 10px;
+}
+select {
+    height: 20px;
+    width: 60%;
+}
+select:focus {
+    outline: none;
+}
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.navbar {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-bottom: 1px solid blue;
+            position: fixed;
+        }
+        a {
+            margin-left: 20px;
+            text-decoration: none;
+        }
+</style>
+
+
+
+<body>
+    <div>
+        <div class="headerContainer">
+            <div class="navbar">
+                <a href="index.html" >NYUMBANI</a>
+                <a href="#" >HUDUMA</a>
+                <a href="#" >MAWASILIANO</a>
+                <a href="#">AKAUNTI</a>
+                <a href="#">MAONI</a>
+            </div>
+        </div>
+
+    <!-------------------------------THE SECTION PART---------------------------------------->
+        <div class="sectionContainer">
+            <!---navigation buttons--->
+            <div class="navButtonsContainer">
+                <div class="buttons">
+                    <button id = 'homebtn' onclick = 'home()'><i class='fa fa-home'></i>HOME</button>
+                    <button id = 'accountInfo' onclick = "toggle_one()"><i class='fa fa-user'></i>REGISTRATION<i  id="caret_one" class= "fa fa-caret-left"></i></button>
+                    <!--accounts info sub btns-->
+                    <div id = "menuOne"  class="menu_one" >
+                        <button id="pInfo" onclick='persona_info()'>Personal Information</button>
+                    </div>
+                    <button id= 'academicbtn' onclick="toggle_two()" style="margin-top: 0px;"><i class='fa fa-dashboard'></i>ACADEMICS<i  id="caret_two" class= "fa fa-caret-left"></i></button>  
+                    <!--academic info sub btns--> 
+                    <div id = 'menuTwo' class="menu_two">
+                        <button id="EInfo" onclick='exam_results()'>Exam Results</button>
+                        <button id="CInfo">Course Work</button>
+                    </div>          
+                </div>
+            </div>
+
+
+
+
+
+            <!--tab contents------>
+            <div class = 'tabContainer'>
+                    <div class="tableContMain">
+                      <div id="home" style="display: block;">
+                         <h1>HOME</h1>
+                        <div class="tableCont">
+                            <table border="1">
+                                <caption>PERSONA DETAILS</caption>
+                                <tr>
+                                    <th>FULLNAME</th>
+                                    <th>PROGRAMME</th>
+                                    <th>LEVEL</th>
+                                    <th>YEAR</th>
+                                    <th>STATUS</th>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </table> 
+                        </div>
+                       <div class="tableCont" style="margin-top: 40px;">
+                            <table border="1" style="border-collapse: collapse;">
+                                <caption>COURSE MODUES</caption>
+                                <tr>
+                                    <th>SN</th>
+                                    <th>COURSE CODE</th>
+                                    <th>COURSE NAME</th>
+                                    <th>COURSE TYPE</th>
+                                    <th>COURSE CREDIT</th>
+                                    <th>REMARKS</th>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                 <!-- <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>  -->
+                            </table>
+                         </div>
+                     </div>
+                    <!---------------REGISTRATION SECTIONS------------------------>
+                      <!--persona infromation reg-------->
+                 <div id="personaInfo" style= "display: none;">
+                    <h1>REGISTRATION</h1> 
+                    <div class="tableCont">
+                        <form action="" method="">
+                          <fieldset style="border: 1px solid red;"><legend>PERSONAL INFORMATION</legend>    ,
+                            <fieldset>
+                                <legend>Student information</legend>
+                            <div class="grid">
+                                <div>
+                                    <label for="fname" >FIRST NAME</label>
+                                    <input type="text" name="fname" required /> 
+                                </div>
+                                <div>
+                                    <label for="Mname" >MIDDLE NAME</label>
+                                    <input type="text" name="Mname" />
+                                </div>
+                                <div>
+                                    <label for="lname" >LAST NAME</label>
+                                    <input type="text" name="lname" required>
+                                </div>
+                                <div>
+                                    <label for="dob" >DATE OF BIRTH</label>
+                                    <input type="date" name="dob"  required>
+                                </div>
+                                <div>
+                                    <label for="pob" >PLACE OF BIRTH</label>
+                                    <input type="text" name="pob"  required>
+                                </div>
+                                <div>
+                                    <label for="cAdd" >CURRENT ADDRESS</label>
+                                    <input type="text" name="cAdd"  required>
+                                </div>
+                                <div>
+                                    <label for="pAdd" >PERMANENT ADDRESS</label>
+                                    <input type="text" name="pAdd"  required>
+                                </div>
+                                <div>
+                                    <label for="email" >EMAIL</label>
+                                    <input type="email" name="email"  >
+                                </div>
+                                <div>
+                                    <label for="pnumber" >PHONE NUMBER</label>
+                                    <input type="text" name="pnumber"  >
+                                </div>
+                            </div>
+                                <fieldset>
+                                <legend></legend>
+                            <div class="grid">
+                                <div>
+                                    <label for="f4indexNo" >F.4 INDEX NO.</label>
+                                    <input type="text" name="f4indexNo" required /> 
+                                </div>
+                                <div>
+                                    <label for="ols">O  LEVEL SCHOOL</label>
+                                    <input type="text" name="als" />
+                                </div>
+                                <div>
+                                    <label for="als" >A LEVEL SCHOOL</label>
+                                    <input type="text" name="als" required>
+                                </div>
+                                <div>
+                                    <label for="f6indexNo" >F.6 INDEX NO.</label>
+                                    <input type="text" name="f6indexNo" required /> 
+                                </div>
+                            </div>
+                                </fieldset>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Kin Information</legend>
+                            <div class="grid">
+
+                                <div>
+                                    <label for="select" >SELECT THE TYPE OF RELATIVE</label>
+                                    <select>
+                                        <option>none</option>
+                                        <option>FATHER</option>
+                                        <option>MOTHER</option>
+                                        <option>BROTHER</option>
+                                        <option>SISTER</option>
+                                        <option>FRIEND</option>
+                                        <option>UNCLE</option>
+                                        <option>AUNT</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="Kinfname" >FIRST NAME</label>
+                                    <input type="text" name="Kinfname" required />
+                                </div>
+                                <div>
+                                    <label for="kinMname" >MIDDLE NAME</label>
+                                    <input type="text" name="kinMname" >
+                                </div>
+                                <div>
+                                    <label for="kinlname" >LAST NAME</label>
+                                    <input type="text" name="kinlname"  required>
+                                </div>
+                                <div>
+                                    <label for="occ" >OCCUPATION</label>
+                                    <input type="text" name="occ"  >
+                                </div>
+                                <div>
+                                    <label for="kinPadd" >PERMANENT ADDRESS</label>
+                                    <input type="text" name="kinPadd"  required>
+                                </div>
+                                <div>
+                                    <label for="kincAdd" >CURRENT ADDRESS</label>
+                                    <input type="text" name="kincAdd"  required>
+                                </div>
+                                <div>
+                                    <label for="kinemail" >EMAIL</label>
+                                    <input type="email" name="kinemail"  >
+                                </div>
+                                <div>
+                                    <label for="kinpnumb" >PHONE NUMBER</label>
+                                    <input type="text" name="kinpnumb"  >
+                                </div>
+                            </div>
+                            </fieldset>
+                            <input type="submit" value="Registar">
+                        </fieldset>
+                        </form>
+                    </div>
+                 </div>
+
+                    <!---------------------ACCADEMICS SECTION---------------------------------------->
+                     <!--exam results-->
+                 <div id="examResults" style="display: none;">     
+                    <h1>EXAM RESULTS</h1>
+                    <div class="tableCont" style="margin-top: 40px;">
+                        <table border="1" style="border-collapse: collapse;">
+                            <caption>EXAMINATION RESULTS FOR SECOND SEMESTER -<mark>year</mark></caption>
+                            <tr>
+                                <th>SN</th>
+                                <th>COURSE CODE</th>
+                                <th>COURSE NAME</th>
+                                <th>COURSE TYPE</th>
+                                <th>COURSE CREDIT</th>
+                                <th>REMARKS</th>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </table>
+                        <hr style="border: 2px dotted #b11f1f;margin: 40px 0px;">
+                        <table border="1" style="border-collapse: collapse;">
+                            <caption>EXAMINATION RESULTS FOR FIRST SEMESTER -<mark>year</mark></caption>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>COURSE CODE</th>
+                                        <th>COURSE NAME</th>
+                                        <th>COURSE TYPE</th>
+                                        <th>COURSE CREDIT</th>
+                                        <th>GRADE</th>
+                                        <th>REMARKS</th>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr> -->
+                        </table>
+                        <hr style="margin: 20px 0px;">
+                        <table border="1" style="border-color: hsl(90, 100%, 50%);">
+                            <caption style="color: #b11f1f;"><u>TOTAL PERFORMANCE</u><mark>year</mark></caption>
+                            <tr>
+                                <th>TOTAL CREDIT</th>
+                                <th>TOTAL POINTS</th>
+                                <th>OVERALL GPA</th>
+                                <th>REMARKS</th>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </table>
+                    </div>
+                 </div>    
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="fotter"></div>
+    </div>  
+    <script>
+        var first_menu = document.getElementById("menuOne");
+        var second_menu = document.getElementById('menuTwo');
+        var first_menu_caret = document.getElementById('caret_one');
+        var menu_two_caret = document.getElementById('caret_two');
+        function toggle_one() {
+            first_menu.classList.toggle("menu_one");
+        }
+
+        function toggle_two() {
+            second_menu.classList.toggle("menu_two");
+          
+        };
+
+       function home() {
+        document.getElementById("home").style.display = "block";
+        document.getElementById("examResults").style.display  = "none";
+        document.getElementById("personaInfo").style.display = "none";
+       }
+       function persona_info() {
+        document.getElementById("home").style.display = "none";
+        document.getElementById("examResults").style.display  = "none";
+        document.getElementById("personaInfo").style.display = "block";
+       }
+       function exam_results() {
+        document.getElementById("home").style.display = "none";
+        document.getElementById("examResults").style.display  = "block";
+        document.getElementById("personaInfo").style.display = "none";
+       }
+
+             </script>
+    </body>
+</html>
+
+
+
+
+
+
+  <!--ACCOUNTS SECTION-->
+  
